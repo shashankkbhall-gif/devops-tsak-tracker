@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-task-tracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-task-tracker
+  template:
+    metadata:
+      labels:
+        app: devops-task-tracker
+    spec:
+      containers:
+        - name: devops-task-tracker
+          image: geethask/devops-task-tracker:latest
+          ports:
+            - containerPort: 5000
